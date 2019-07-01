@@ -11,15 +11,13 @@ class clsResource:
         self.TimeAllowedInMinute = config.DATABASE_CONFIG['TimeAllowedInMinute']
         self.username = getpass.getuser()
 
-    @staticmethod
-    def UpdateTime(timeToUpdate):
+    def UpdateTime(self, timeToUpdate):
         print("the time was updated to ",timeToUpdate)
         f = open("{}{}\{}.txt".format(self.WorkingDirectory,date.today(),self.username), "w")
         f.write(str(timeToUpdate))
         f.close()
 
-    @staticmethod
-    def GetLastTime():
+    def GetLastTime(self):
         f = open("{}{}\{}.txt".format(self.WorkingDirectory,date.today(),self.username),"r")
         sumTime = int(f.read())
         f.close()

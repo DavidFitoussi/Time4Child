@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restful import Api, Resource , reqparse
+from Resource import clsResource
 
 app  = Flask(__name__)
 api = Api(app)
@@ -12,7 +13,9 @@ class Service (Resource):
 
     @app.route('/GetTimeofuser')
     def GetTimeofuser():
-      return main.GetLastTime(),200
+        InstanceResource = clsResource()
+        result = str(InstanceResource.GetLastTime())
+        return result,200
 
 
 api.add_resource(Service, "/user/<string:name>")

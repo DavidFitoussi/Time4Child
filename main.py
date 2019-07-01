@@ -18,8 +18,6 @@ def CheckTime() :
 
 InstanceResource = clsResource()
 
-
-
 if os.path.exists(InstanceResource.WorkingDirectory) == False:
     os.mkdir(InstanceResource.WorkingDirectory)
 currentDayPath = "{}{}".format(InstanceResource.WorkingDirectory,date.today())
@@ -30,9 +28,9 @@ if os.path.exists("{}{}\{}.txt".format(InstanceResource.WorkingDirectory,current
 
 TimeAllowed = True
 while TimeAllowed is True:
-     InstanceResource.CheckTime()
+     CheckTime()
      if TimeAllowed is True:
-       time.sleep(WakeUpTimeInMinute*60)
+       time.sleep(InstanceResource.WakeUpTimeInMinute*60)
 
 print("Shutdown machine !!!!")
 os.system("shutdown -l")
